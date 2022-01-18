@@ -7,14 +7,15 @@
       Contents
     </div>
     <div class="card-body">
-    @foreach ($data as $post)
-    <div>
-      <h5 class="card-title">{{$post->name}}</h5>
-      <p class="card-text">{{$post->description}}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>  <hr>
+      @foreach ($data as $post)
+      <div>
+        <h5 class="card-title">{{$post->name}}</h5>
+        <p class="card-text">{{$post->description}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+      <hr>
       @endforeach
-  </div>
+    </div>
   </div>
 </div>
 @endsection
