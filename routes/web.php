@@ -14,8 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[Homecontroller::class, 'index']);
+// Route::get('/',[Homecontroller::class, 'index']);
+Route::resource('posts',HomeController::class);
+ 
 
 
 
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
