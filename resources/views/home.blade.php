@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="container">
-  <a href="/posts/create" class="btn btn-primary mb-4">New Content</a>
+    <a href="/posts/create" class="btn btn-primary mb-4">New Content</a>
+    <a href="/logout" class="btn btn-primary mb-4">Logout</a>
+    <h5 class="float-end">{{Auth::user()->name}}</h5>
   <div class="card">
     <div class="card-header text-center">
       Contents
