@@ -1,8 +1,10 @@
 <?php
 
+use App\Container;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Homecontroller;
+use App\Test;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,11 @@ use App\Http\Controllers\Homecontroller;
 |
 */
 
-// Route::get('/',[Homecontroller::class, 'index']);
+Route::get('/',function(){
+    
+    dd(resolve('test'));
+});
+
 Route::resource('posts',HomeController::class)->middleware(['auth']);
 // Route::resource('posts',HomeController::class)->middleware(['auth:sanctum', 'verified']);
 

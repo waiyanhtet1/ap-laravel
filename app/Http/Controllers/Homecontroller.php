@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\storePostRequest;
+use App\Mail\PostCreated;
+use App\Mail\PostStore;
 use App\Models\Category;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -41,8 +44,8 @@ class HomeController extends Controller
     public function store(storePostRequest $request)
     {   
         $validated = $request->validated();
-        Post::create($validated);
-        return redirect('/posts');
+        $post = Post::create($validated + ['user_id'=>auth()->user()->id]);
+        return redirect('/posts')->with('status',config('aprogrammer.message.created'));
     }
 
     /**
@@ -87,7 +90,7 @@ class HomeController extends Controller
     {
         $validated = $request->validated();
         $post->update($validated);
-        return redirect('/posts');
+        return redirect('/posts')->with('status','Post was successfully updated!');
     }
 
     /**
@@ -99,6 +102,6 @@ class HomeController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect('/posts');
+        return redirect('/posts')->with('status','Post was successfully deleted!');
     }
 }
