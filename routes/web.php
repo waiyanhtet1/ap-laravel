@@ -18,8 +18,7 @@ use App\Test;
 */
 
 Route::get('/',function(){
-    
-    dd(resolve('test'));
+    return view('welcome');
 });
 
 Route::resource('posts',HomeController::class)->middleware(['auth']);

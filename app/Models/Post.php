@@ -23,13 +23,13 @@ class Post extends Model
 
     protected static function booted()
     {
-        static::created(function ($post) {
-            Mail::to("waiyan@gmail.com")->send(new PostStore($post));
-        });
+        // static::created(function ($post) {
+        //     Mail::to("waiyan@gmail.com")->send(new PostStore($post));
+        // });
         
-        static::updated(function ($post) {
-            Mail::to("waiyan@gmail.com")->send(new UpdatePost($post));
-        });
+        // static::updated(function ($post) {
+        //     Mail::to("waiyan@gmail.com")->send(new UpdatePost($post));
+        // });
 
     }
 }
